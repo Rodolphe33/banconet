@@ -1,8 +1,8 @@
-package com.cesi_tp.accessingdatamysql.repository;
+package com.cesi_tp.accessingdatamysql.user;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.cesi_tp.accessingdatamysql.model.User;
+import com.cesi_tp.accessingdatamysql.user.User;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete

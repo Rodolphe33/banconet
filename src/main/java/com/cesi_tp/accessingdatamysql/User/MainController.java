@@ -1,4 +1,4 @@
-package com.cesi_tp.accessingdatamysql.controller.MainController;
+package com.cesi_tp.accessingdatamysql.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

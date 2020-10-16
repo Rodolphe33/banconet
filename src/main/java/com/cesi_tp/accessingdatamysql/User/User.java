@@ -1,4 +1,4 @@
-package com.cesi_tp.accessingdatamysql.model;
+package com.cesi_tp.accessingdatamysql.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity 
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.Auto)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String name;
     private String email;
