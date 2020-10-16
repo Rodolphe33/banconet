@@ -31,7 +31,7 @@ public class ClientController {
         }
 
         @GetMapping(path="/allclient")
-        public @ResponseBody Iterable<Cl> getAllClients() {
+        public @ResponseBody Iterable<Client> getAllClients() {
             return clientRepository.findAll();
         }
 }
