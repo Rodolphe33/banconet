@@ -1,4 +1,4 @@
-package com.cesi_tp.accessingdatamysql.user;
+package com.cesi_tp.banconet.access_data.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
