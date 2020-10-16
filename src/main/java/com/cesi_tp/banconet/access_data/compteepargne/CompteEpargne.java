@@ -1,4 +1,4 @@
-package com.cesi_tp.banconet.access_data.comptecourant;
+package com.cesi_tp.banconet.access_data.compteepargne;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,21 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity 
-public class CompteCourant {
+public class CompteEpargne {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     private String numero;
-    private String intitule;
     private double solde;
-    private double montantDecouvertAutorise;
+    private double tauxInteret;
 
-    public CompteCourant(String numero, String intitule, double solde, double montantDecouvertAutorise){
+    public CompteEpargne(String numero, double solde, double tauxInteret){
         this.numero = numero;
-        this.intitule = intitule;
         this.solde = solde;
-        this.montantDecouvertAutorise = montantDecouvertAutorise;
-        // ++ nbComptesCourants;
+        this.tauxInteret = tauxInteret;
     }
 
     // String toString()
@@ -41,6 +38,22 @@ public class CompteCourant {
         this.solde += montant;
     }
 
+    /**
+     * function calculinteret
+     * @param interet
+     */
+    public void interet(double interet){
+        this.solde += interet;
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id){
+        this.id = id;
+    }
+
     public String getNumero(){
         return numero;
     }
@@ -48,25 +61,17 @@ public class CompteCourant {
         this.numero = numero;
     }
     
-    public String getIntitule(){
-        return intitule;
-    }
-    public void setIntitule(String intitule) {
-        this.intitule = intitule;
-    }
-
-    public String getSolde(){
+    public String getSolde() {
         return solde;
     }
-    public void setSolde(String solde) {
+    public void setSolde(double solde) {
         this.solde = solde;
     }
 
-    public String getMontantDecouvertAutorise(){
-        return montantDecouvertAutorise;
+    public String getTauxInteret() {
+        return tauxInteret;
     }
-    public void setMontantDecouvertAutorise(String montantDecouvertAutorise) {
-        this.montantDecouvertAutorise = montantDecouvertAutorise;
+    public void setTauxInteret(double tauxInteret) {
+        this.tauxInteret = tauxInteret;
     }
-    
 }

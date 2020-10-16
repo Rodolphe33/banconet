@@ -14,12 +14,12 @@ public class CompteCourantController {
     @Autowired 
     private CompteCourantRepository compteCourantRepository;
 
-    @PostMapping(path="/comptecourant") // Map ONLY POST Requests
+    @PostMapping(path="/addcomptecourant")
     public @ResponseBody String addNewCompteCourant (
         @RequestParam String numero, 
         @RequestParam String intitule, 
         @RequestParam double solde, 
-        @RequestParamdouble montantDecouvertAutorise) {
+        @RequestParam double montantDecouvertAutorise) {
 
         CompteCourant n = new CompteCourant();
         n.setNumero(numero);
@@ -32,7 +32,6 @@ public class CompteCourantController {
 
     @GetMapping(path="/allcomptecourant")
     public @ResponseBody Iterable<CompteCourant> getAllCompteCourants() {
-        // This returns a JSON or XML with the compteCourants
         return compteCourantRepository.findAll();
     }
 }

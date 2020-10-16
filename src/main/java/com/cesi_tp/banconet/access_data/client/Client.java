@@ -19,7 +19,6 @@ public class Client {
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id){
         this.id = id;
     }
@@ -27,7 +26,6 @@ public class Client {
     public String getNom(){
         return name;
     }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -35,7 +33,6 @@ public class Client {
     public Integer getPrenom() {
         return prenom;
     }
-
     public void setPrenom(Integer prenom){
         this.prenom = prenom;
     }
@@ -46,4 +43,8 @@ public class Client {
         this.compteCourant = compteCourant;
         this.compteEpargne = compteEpargne;
     }
+
+    // String toString()
+
+    // double calculerAvoirGlobal()
 }

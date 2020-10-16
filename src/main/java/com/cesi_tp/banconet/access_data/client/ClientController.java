@@ -16,9 +16,12 @@ public class ClientController {
     private ClientRepository clientRepository;
 
     @PostMapping(path="/addclient")
-    public @ResponseBody String addNewClient (@RequestParam String nom, @RequestParam String prenom, @RequestParam String compteCourant, @RequestParam String compteEpargne){
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
+    public @ResponseBody String addNewClient (
+        @RequestParam String nom, 
+        @RequestParam String prenom, 
+        @RequestParam String compteCourant, 
+        @RequestParam String compteEpargne){
+
         Client n = new Client();
         n.setNom(nom);
         n.setPrenom(prenom);
@@ -29,7 +32,6 @@ public class ClientController {
 
         @GetMapping(path="/allclient")
         public @ResponseBody Iterable<Cl> getAllClients() {
-            // This returns a JSON or XML with the clients
             return clientRepository.findAll();
         }
 }
