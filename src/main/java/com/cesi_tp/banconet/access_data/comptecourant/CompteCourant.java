@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -21,8 +22,9 @@ public class CompteCourant {
   private double solde;
   private double montantDecouvertAutorise;
 
-  @OneToOne
-  //   @ManyToOne
+  //   @OneToOne
+  @ManyToOne
+  //   @OneToMany
   @JsonIgnore
   private Client client;
 
