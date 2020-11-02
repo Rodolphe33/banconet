@@ -9,29 +9,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(path="/client")
+@RequestMapping(path = "/client")
 public class ClientController {
-    @Autowired
 
-    private ClientRepository clientRepository;
+  @Autowired
+  private ClientRepository clientRepository;
 
-    @PostMapping(path="/addclient")
-    public @ResponseBody String addNewClient (
-        @RequestParam String nom, 
-        @RequestParam String prenom, 
-        @RequestParam String compteCourant, 
-        @RequestParam String compteEpargne){
+  @PostMapping(path = "/addclient")
+  public @ResponseBody String addNewClient(
+    @RequestParam String nom,
+    @RequestParam String prenom
+  ) {
+    Client n = new Client(nom, prenom);
+    clientRepository.save(n);
+    return "Saved";
+  }
 
-        Client n = new Client();
-        n.setNom(nom);
-        n.setPrenom(prenom);
-        n.setCompteCourant(compteCourant);
-        n.setCompteEpargne(compteEpargne);
-        return "Saved";
-        }
-
-        @GetMapping(path="/allclient")
-        public @ResponseBody Iterable<Client> getAllClients() {
-            return clientRepository.findAll();
-        }
+  @GetMapping(path = "/allclient")
+  public @ResponseBody Iterable<Client> getAllClients() {
+    return clientRepository.findAll();
+  }
 }

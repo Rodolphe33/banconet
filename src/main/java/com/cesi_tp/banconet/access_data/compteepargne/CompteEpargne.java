@@ -5,73 +5,80 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity 
+@Entity
 public class CompteEpargne {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
-    private String numero;
-    private double solde;
-    private double tauxInteret;
 
-    public CompteEpargne(String numero, double solde, double tauxInteret){
-        this.numero = numero;
-        this.solde = solde;
-        this.tauxInteret = tauxInteret;
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer id;
 
-    // String toString()
+  private String numero;
+  private double solde;
+  private double tauxInteret;
 
-    /**
-     * function dediter
-     * @param montant doit être négatif
-     */
-    public void debiter(double montant){
-        this.solde += montant;
-    }
+  public CompteEpargne(String numero, double solde, double tauxInteret) {
+    this.numero = numero;
+    this.solde = solde;
+    this.tauxInteret = tauxInteret;
+  }
 
-    /**
-     * function crediter
-     * @param montant doit être positif
-     */
-    public void crediter(double montant){
-        this.solde += montant;
-    }
+  public CompteEpargne() {}
 
-    /**
-     * function calculinteret
-     * @param interet
-     */
-    public void interet(double interet){
-        this.solde += interet;
-    }
+  // String toString()
 
+  /**
+   * function dediter
+   * @param montant doit être négatif
+   */
+  public void debiter(double montant) {
+    this.solde += montant;
+  }
 
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id){
-        this.id = id;
-    }
+  /**
+   * function crediter
+   * @param montant doit être positif
+   */
+  public void crediter(double montant) {
+    this.solde += montant;
+  }
 
-    public String getNumero(){
-        return numero;
-    }
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-    
-    public String getSolde() {
-        return solde;
-    }
-    public void setSolde(double solde) {
-        this.solde = solde;
-    }
+  /**
+   * function calculinteret
+   * @param interet
+   */
+  public void interet(double interet) {
+    this.solde += interet;
+  }
 
-    public String getTauxInteret() {
-        return tauxInteret;
-    }
-    public void setTauxInteret(double tauxInteret) {
-        this.tauxInteret = tauxInteret;
-    }
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  public String getNumero() {
+    return numero;
+  }
+
+  public void setNumero(String numero) {
+    this.numero = numero;
+  }
+
+  public double getSolde() {
+    return solde;
+  }
+
+  public void setSolde(double solde) {
+    this.solde = solde;
+  }
+
+  public double getTauxInteret() {
+    return tauxInteret;
+  }
+
+  public void setTauxInteret(double tauxInteret) {
+    this.tauxInteret = tauxInteret;
+  }
 }
