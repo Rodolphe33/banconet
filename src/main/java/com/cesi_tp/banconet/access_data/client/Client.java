@@ -2,10 +2,12 @@ package com.cesi_tp.banconet.access_data.client;
 
 import com.cesi_tp.banconet.access_data.comptecourant.CompteCourant;
 import com.cesi_tp.banconet.access_data.compteepargne.CompteEpargne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -19,10 +21,11 @@ public class Client {
   private String prenom;
 
   @OneToOne
+  // @OneToMany
   private CompteCourant compteCourant;
 
   @OneToOne
-  CompteEpargne compteEpargne;
+  private CompteEpargne compteEpargne;
 
   public Integer getId() {
     return id;

@@ -1,12 +1,12 @@
 package com.cesi_tp.banconet.access_data.compteepargne;
 
-// import com.cesi_tp.banconet.access_data.client.Client;
+import com.cesi_tp.banconet.access_data.client.Client;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-// import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CompteEpargne {
@@ -19,8 +19,9 @@ public class CompteEpargne {
   private double solde;
   private double tauxInteret;
 
-  // @OneToOne
-  // private Client client;
+  @OneToOne(mappedBy = "compteEpargne")
+  @JsonIgnore
+  private Client client;
 
   public CompteEpargne(String numero, double solde, double tauxInteret) {
     this.numero = numero;
@@ -87,11 +88,12 @@ public class CompteEpargne {
   public void setTauxInteret(double tauxInteret) {
     this.tauxInteret = tauxInteret;
   }
-  // public Client getClient() {
-  //   return client;
-  // }
 
-  // public void setClient(Client client) {
-  //   this.client = client;
-  // }
+  public Client getClient() {
+    return client;
+  }
+
+  public void setClient(Client client) {
+    this.client = client;
+  }
 }
