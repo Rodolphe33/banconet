@@ -1,9 +1,12 @@
 package com.cesi_tp.banconet.access_data.compteepargne;
 
+// import com.cesi_tp.banconet.access_data.client.Client;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+// import javax.persistence.OneToOne;
 
 @Entity
 public class CompteEpargne {
@@ -15,6 +18,9 @@ public class CompteEpargne {
   private String numero;
   private double solde;
   private double tauxInteret;
+
+  // @OneToOne
+  // private Client client;
 
   public CompteEpargne(String numero, double solde, double tauxInteret) {
     this.numero = numero;
@@ -81,4 +87,11 @@ public class CompteEpargne {
   public void setTauxInteret(double tauxInteret) {
     this.tauxInteret = tauxInteret;
   }
+  // public Client getClient() {
+  //   return client;
+  // }
+
+  // public void setClient(Client client) {
+  //   this.client = client;
+  // }
 }

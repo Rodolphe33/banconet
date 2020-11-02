@@ -65,11 +65,29 @@ public class Client {
     this.prenom = prenom;
   }
 
+  public Client() {}
+
   public String toString() {
     return "toto"; // TODO  à faire
   }
 
   double calculerAvoirGlobal() {
     return 0; // TODO  à faire
+  }
+
+  public CompteCourant getCompteCourant() {
+    return compteCourant;
+  }
+
+  public void setCompteCourant(CompteCourant compteCourant) {
+    this.compteCourant = compteCourant;
+  }
+
+  public CompteEpargne getCompteEpargne() {
+    return compteEpargne;
+  }
+
+  public void setCompteEpargne(CompteEpargne compteEpargne) {
+    this.compteEpargne = compteEpargne;
   }
 }

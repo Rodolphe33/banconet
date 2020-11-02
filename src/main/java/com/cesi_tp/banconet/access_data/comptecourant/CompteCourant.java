@@ -1,9 +1,11 @@
 package com.cesi_tp.banconet.access_data.comptecourant;
 
+import com.cesi_tp.banconet.access_data.client.Client;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class CompteCourant {
@@ -17,6 +19,9 @@ public class CompteCourant {
   private double solde;
   private double montantDecouvertAutorise;
 
+  @OneToOne
+  private Client client;
+
   public CompteCourant(
     String numero,
     String intitule,
@@ -29,6 +34,8 @@ public class CompteCourant {
     this.montantDecouvertAutorise = montantDecouvertAutorise;
     // ++ nbComptesCourants;
   }
+
+  public CompteCourant() {}
 
   // String toString()
 
@@ -78,5 +85,13 @@ public class CompteCourant {
 
   public void setMontantDecouvertAutorise(double montantDecouvertAutorise) {
     this.montantDecouvertAutorise = montantDecouvertAutorise;
+  }
+
+  public Client getClient() {
+    return client;
+  }
+
+  public void setClient(Client client) {
+    this.client = client;
   }
 }
