@@ -3,6 +3,7 @@ package com.cesi_tp.banconet.access_data.client;
 import com.cesi_tp.banconet.access_data.comptecourant.CompteCourant;
 import com.cesi_tp.banconet.access_data.compteepargne.CompteEpargne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +24,10 @@ public class Client {
 
   // @OneToOne
   // @OneToMany
-  @ManyToOne
-  private CompteCourant compteCourant;
+  // @ManyToOne
+  // private  compteCourant;
+  @OneToMany(mappedBy = "client")
+  private List<CompteCourant> compteCourants;
 
   @OneToOne
   private CompteEpargne compteEpargne;
@@ -61,7 +64,7 @@ public class Client {
   ) {
     this.nom = nom;
     this.prenom = prenom;
-    this.compteCourant = compteCourant;
+    // this.compteCourant = compteCourant;
     this.compteEpargne = compteEpargne;
   }
 
@@ -80,12 +83,19 @@ public class Client {
     return 0; // TODO  à faire
   }
 
-  public CompteCourant getCompteCourant() {
-    return compteCourant;
+  // public CompteCourant getCompteCourant() {
+  //   return compteCourant;
+  // }
+
+  // public void setCompteCourant(CompteCourant compteCourant) {
+  //   this.compteCourant = compteCourant;
+  // }
+  public List<CompteCourant> getCompteCourants() {
+    return compteCourants;
   }
 
-  public void setCompteCourant(CompteCourant compteCourant) {
-    this.compteCourant = compteCourant;
+  public void setCompteCourants(List<CompteCourant> compteCourants) {
+    this.compteCourants = compteCourants;
   }
 
   public CompteEpargne getCompteEpargne() {

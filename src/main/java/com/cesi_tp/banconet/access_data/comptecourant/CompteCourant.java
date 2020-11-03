@@ -22,9 +22,9 @@ public class CompteCourant {
   private double solde;
   private double montantDecouvertAutorise;
 
-  //   @OneToOne
+  // @OneToOne
   @ManyToOne
-  //   @OneToMany
+  // @OneToMany
   @JsonIgnore
   private Client client;
 
