@@ -2,7 +2,7 @@ package com.cesi_tp.banconet.access_data.client;
 
 import com.cesi_tp.banconet.access_data.comptecourant.CompteCourant;
 import com.cesi_tp.banconet.access_data.compteepargne.CompteEpargne;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.lang.Override;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -56,6 +56,11 @@ public class Client {
     this.prenom = prenom;
   }
 
+  @Override
+  public String toString() {
+    return nom + " " + prenom;
+  }
+
   public Client(
     String nom,
     String prenom,
@@ -74,10 +79,6 @@ public class Client {
   }
 
   public Client() {}
-
-  public String toString() {
-    return "toto"; // TODO  à faire
-  }
 
   double calculerAvoirGlobal() {
     return 0; // TODO  à faire
