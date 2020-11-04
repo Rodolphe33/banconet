@@ -2,6 +2,7 @@ package com.cesi_tp.banconet.access_data.compteepargne;
 
 import com.cesi_tp.banconet.access_data.client.Client;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.lang.Override;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +32,17 @@ public class CompteEpargne {
 
   public CompteEpargne() {}
 
-  // String toString()
+  @Override
+  public String toString() {
+    return (
+      "Numéro du Compte Epargne: " +
+      numero +
+      ", solde: " +
+      (solde) +
+      " - Taux d'intéret: " +
+      tauxInteret
+    );
+  }
 
   /**
    * function dediter
