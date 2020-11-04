@@ -2,13 +2,12 @@ package com.cesi_tp.banconet.access_data.comptecourant;
 
 import com.cesi_tp.banconet.access_data.client.Client;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.lang.Override;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class CompteCourant {
@@ -22,9 +21,7 @@ public class CompteCourant {
   private double solde;
   private double montantDecouvertAutorise;
 
-  // @OneToOne
   @ManyToOne
-  // @OneToMany
   @JsonIgnore
   private Client client;
 
@@ -38,12 +35,19 @@ public class CompteCourant {
     this.intitule = intitule;
     this.solde = solde;
     this.montantDecouvertAutorise = montantDecouvertAutorise;
-    // ++ nbComptesCourants;
+  }
+
+  public CompteCourant(String intitule, double solde) {
+    this.intitule = intitule;
+    this.solde = solde;
   }
 
   public CompteCourant() {}
 
-  // String toString()
+  @Override
+  public String toString() {
+    return intitule + ", solde: " + solde;
+  }
 
   /**
    * function dediter
