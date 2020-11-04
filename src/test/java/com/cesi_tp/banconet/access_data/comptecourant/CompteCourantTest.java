@@ -10,7 +10,7 @@ class CompteCourantTest {
 
   @Test
   void controleCompteCourant() {
-    CompteCourant ccTest = new CompteCourant("cCourant1", 200);
+    CompteCourant ccTest = new CompteCourant("cCourant1", 200.0);
     // assertEquals(ce qui est attendu, ce que je test);
     assertEquals("cCourant1, solde: 200.0", ccTest.toString());
   }

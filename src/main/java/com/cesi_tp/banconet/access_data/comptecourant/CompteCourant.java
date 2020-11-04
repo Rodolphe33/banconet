@@ -1,7 +1,7 @@
 package com.cesi_tp.banconet.access_data.comptecourant;
 
-// import com.cesi_tp.banconet.access_data.Compte;
 import com.cesi_tp.banconet.access_data.client.Client;
+import com.cesi_tp.banconet.access_data.compte.Compte;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.lang.Override;
 import javax.persistence.Entity;
@@ -11,15 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class CompteCourant {
+public class CompteCourant extends Compte {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
-  private String numero;
-  private String intitule;
-  private double solde;
+  // private String numero;
+  // private String intitule;
+  // private double solde;
   private double montantDecouvertAutorise;
 
   @ManyToOne
@@ -32,20 +32,15 @@ public class CompteCourant {
     double solde,
     double montantDecouvertAutorise
   ) {
-    // super(numero, intitule, solde);
-    this.numero = numero;
-    this.intitule = intitule;
-    this.solde = solde;
+    super(numero, intitule, solde);
     this.montantDecouvertAutorise = montantDecouvertAutorise;
   }
 
   public CompteCourant(String intitule, double solde) {
-    this.intitule = intitule;
-    this.solde = solde;
-    // super(numero, intitule, solde);
+    super(intitule, solde);
   }
 
-  public CompteCourant() {}
+  // public CompteCourant() {}
 
   @Override
   public String toString() {
@@ -66,30 +61,6 @@ public class CompteCourant {
    */
   public void crediter(double montant) {
     this.solde += montant;
-  }
-
-  public String getNumero() {
-    return numero;
-  }
-
-  public void setNumero(String numero) {
-    this.numero = numero;
-  }
-
-  public String getIntitule() {
-    return intitule;
-  }
-
-  public void setIntitule(String intitule) {
-    this.intitule = intitule;
-  }
-
-  public double getSolde() {
-    return solde;
-  }
-
-  public void setSolde(double solde) {
-    this.solde = solde;
   }
 
   public double getMontantDecouvertAutorise() {

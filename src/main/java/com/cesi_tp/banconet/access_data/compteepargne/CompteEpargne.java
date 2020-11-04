@@ -1,6 +1,7 @@
 package com.cesi_tp.banconet.access_data.compteepargne;
 
 import com.cesi_tp.banconet.access_data.client.Client;
+// import com.cesi_tp.banconet.access_data.compte.Compte;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.lang.Override;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
+// public class CompteEpargne extends Compte {
 public class CompteEpargne {
 
   @Id
@@ -38,7 +40,7 @@ public class CompteEpargne {
       "Numéro du Compte Epargne: " +
       numero +
       ", solde: " +
-      (solde) +
+      solde +
       " - Taux d'intéret: " +
       tauxInteret
     );
@@ -64,8 +66,9 @@ public class CompteEpargne {
    * function calculinteret
    * @param interet
    */
-  public void interet(double interet) {
-    this.solde += interet;
+  public double calculInterets(double interet) {
+    // tauxInteret * montant;
+    return solde * (interet / 100) + solde;
   }
 
   public Integer getId() {
