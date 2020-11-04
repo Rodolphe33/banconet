@@ -11,7 +11,7 @@ class ClientTest {
   @Test
   void controleClient() {
     Client clienTest = new Client("Rodolphe", "Lassalle");
-    // assertEquals(ce qui est attendu, ce qu je test);
+    // assertEquals(ce qui est attendu, ce que je test);
     assertEquals("Rodolphe Lassalle", clienTest.toString());
   }
 }
