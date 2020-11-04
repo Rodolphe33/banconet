@@ -1,5 +1,6 @@
 package com.cesi_tp.banconet.access_data.comptecourant;
 
+// import com.cesi_tp.banconet.access_data.Compte;
 import com.cesi_tp.banconet.access_data.client.Client;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.lang.Override;
@@ -31,6 +32,7 @@ public class CompteCourant {
     double solde,
     double montantDecouvertAutorise
   ) {
+    // super(numero, intitule, solde);
     this.numero = numero;
     this.intitule = intitule;
     this.solde = solde;
@@ -40,6 +42,7 @@ public class CompteCourant {
   public CompteCourant(String intitule, double solde) {
     this.intitule = intitule;
     this.solde = solde;
+    // super(numero, intitule, solde);
   }
 
   public CompteCourant() {}
